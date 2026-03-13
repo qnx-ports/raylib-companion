@@ -1,6 +1,6 @@
 pkgname=raylib
 pkgver=5.5
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="A simple and easy-to-use library to enjoy videogames programming"
 url="https://github.com/raysan5/raylib"
 arch="x86_64"
@@ -60,6 +60,7 @@ package() {
         DESTDIR="$pkgdir" cmake --install . --prefix "/usr"
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 503483a5436e189ad67533dc6c90be592283b84fbd57c86ab457dd1507b1dd11c897767ea9efa83affaf236f2711ec59e56658cf6fcad582a790a5fdc01b5ace  raylib-5.5.tar.gz
 1099e56dadcc470a052dc6cb03f33eadb4f50fb7d86c3749c7734f92baf147cb6ca5d47d005d5f332ddf0c0a6c42f261836150da53610a605fc62f2b5a11180b  00-libraryconfigurations.patch
